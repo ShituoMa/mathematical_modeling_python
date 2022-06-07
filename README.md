@@ -65,14 +65,16 @@ scipy官方文档：https://scipy.org/
 主要的方法就在scipy.optimize库当中，包括minimize、linear_sum_assignment等方法。
 
 ### 1. 线性规划问题求解
-
 求这样一个线性规划的最优解：
-![img]([http://latex.codecogs.com/gif.latex?\\ \min_x f=2x_1+3x_2-x_3\\s.t.\begin{cases}x_1+x_2+3x_3\leq 100\\-2x_2+x_3\ge 15\\3x_1-x_2-4x_3\ge -20\\x_1+x_2+x_3=70\\x_1,x_2,x_3\ge 0\end{cases}](https://latex.codecogs.com/svg.image?\min_x&space;f=2x_1&plus;3x_2-x_3\\s.t.\begin{cases}x_1&plus;x_2&plus;3x_3\leq&space;100\\-2x_2&plus;x_3\ge&space;15\\3x_1-x_2-4x_3\ge&space;-20\\x_1&plus;x_2&plus;x_3=70\\x_1,x_2,x_3\ge&space;0\end{cases}))
+
+![image](https://user-images.githubusercontent.com/61874427/172415401-32d55e34-d877-4a70-8656-830339c75566.png)
+
 
 ### 2. 非线性规划问题求解
-
 求这样一个非线性规划的最优解，要求使用scipy.optimize.minimize求解：
-![img]([http://latex.codecogs.com/gif.latex?\\ \min_x f=x_1^2+3x_2^2-x_1x_3\\s.t.\begin{cases}x_1+x_2+3x_3\leq 100\\-2x_2+x_3\ge 15\\x_1+x_2+x_3=70\\x_1^2+x_2^2\leq 400\\x_1,x_2,x_3\ge 0\end{cases}](https://latex.codecogs.com/svg.image?\min_x&space;f=x_1^2&plus;3x_2^2-x_1x_3\\s.t.\begin{cases}x_1&plus;x_2&plus;3x_3\leq&space;100\\-2x_2&plus;x_3\ge&space;15\\x_1&plus;x_2&plus;x_3=70\\x_1^2&plus;x_2^2\leq&space;400\\x_1,x_2,x_3\ge&space;0\end{cases}))
+
+![image](https://user-images.githubusercontent.com/61874427/172414855-dc1b4e38-c59d-497f-b811-0606beb10136.png)
+
 
 ### 3. 指派问题求解
 现在光之国的五位奥特曼与阿布索留特族的五个小金人开始了1v1的车轮战，如果你现在安排奥特兄弟与他们1v1的战斗，每一项代表一个奥解决一个小金人所需要的时间。只有在最短的时间内打败所有小金人才能救出尤莉安公主。请问对于给定的小金人ABCDE，应该按照怎样的战斗策略使得五场战斗的时间总和最短？
