@@ -162,15 +162,162 @@ scipy官方文档：https://scipy.org/
 
 
 ## 实验六：比特币价格预测
+这一节的实验我们希望能够通过对2022美赛C题比特币价格预测问题的求解，熟悉arima模型的编程细节。
+根据附件Bitcoin.csv，预测比特币在未来30日内的收盘价变化。
+![原始数据](https://user-images.githubusercontent.com/61874427/186624937-cd91a281-c37a-4fc6-813d-5a77b4f9bfc9.png)
+
 
 ## 实验七：最短路径问题
+这一节的实验包括单向最短路径问题和TSP问题的求解，其中TSP问题的求解建议使用遗传算法求解，如果使用动态规划也是可以的。如果不太熟悉遗传算法的同学可以参考第八章。
+
+### 1. 普通最短路径
+![路径](https://img-blog.csdnimg.cn/2020112415370673.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dheW5lX2xlZV9sd2M=,size_16,color_FFFFFF,t_70#pic_center)
+如图所示，这是从光之国（节点1）到其他几个行星的路线图，如果我想从节点1走到节点6，应该以怎样的路线最短？
+
+我知道这个问题你们手算都可以算出来，我希望你们能够用Floyd和Dijsktra两种算法进行计算。
+### 2. 周游最短路径
+这里我可以给出34个城市的坐标，希望能够求解一条路径，它能不重复走完34个城市，然后总的路径长是最短的。
+![image](https://user-images.githubusercontent.com/61874427/186627079-f38cac9e-0fb9-466b-b22e-81aa7f1ba647.png)
+| 经度   | 纬度  |
+| ------ | ----- |
+| 116.46 | 39.92 |
+| 117.2  | 39.13 |
+| 121.48 | 31.22 |
+| 106.54 | 29.59 |
+| 91.11  | 29.97 |
+| 87.68  | 43.77 |
+| 106.27 | 38.47 |
+| 111.65 | 40.82 |
+| 108.33 | 22.84 |
+| 126.63 | 45.75 |
+| 125.35 | 43.88 |
+| 123.38 | 41.8  |
+| 114.48 | 38.03 |
+| 112.53 | 37.87 |
+| 101.74 | 36.56 |
+| 117    | 36.65 |
+| 113.6  | 34.76 |
+| 118.78 | 32.04 |
+| 117.27 | 31.86 |
+| 120.19 | 30.26 |
+| 119.3  | 26.08 |
+| 115.89 | 28.68 |
+| 113    | 28.21 |
+| 114.31 | 30.52 |
+| 113.23 | 23.16 |
+| 121.5  | 25.05 |
+| 110.35 | 20.02 |
+| 103.73 | 36.03 |
+| 108.95 | 34.27 |
+| 104.06 | 30.67 |
+| 106.71 | 26.57 |
+| 102.73 | 25.04 |
+| 114.1  | 22.2  |
+| 113.33 | 22.13 |
+
 
 ## 实验八：量化投资选股问题
+这一实验我们基于实验六对比特币的预测，分析比特币和黄金股价，如果每一次投资都必须至少经过一周才能重新调仓，在你有十万美金的前提下应该如何安排每次的投资策略才能在五年后盈利最大？
 
 ## 实验九：鸢尾花的分类与聚类
+对于附件中提供的iris.csv（也可以通过sklearn.datasets去load_iris()），对其进行以下基本操作：
+### 1. 绘图
+尽可能想到更多的可视化表现形式，绘制成图表并附带文字描述
+### 2. 特征分析
+对于鸢尾花的数据，分析每个特征对鸢尾花类别的影响，你认为用怎样的假设检验去分析最为合适？
+### 3. 分类
+尝试利用不同的分类器去分类鸢尾花数据，并将结果用不同的衡量指标或可视化图表表示。
+### 4. 聚类
+尝试使用Kmeans聚类方法去对鸢尾花进行聚类，并利用轮廓系数等方法测量K最优的取值。
 
 ## 实验十： 波士顿房价预测
+与实验九对应，可以使用sklearn.datasets.load_boston()获取波士顿房价数据集进行预测。这里我们更多的是做回归分析。
+### 1. 绘图
+尽可能想到更多的可视化表现形式，绘制成图表并附带文字描述
+### 2. 特征分析
+对于房价的数据，分析每个特征对房价类别的影响，你认为用怎样的假设检验去分析最为合适？能否建立这些量之间的回归方程并进行检验？
+### 3. 分类
+尝试利用不同的回归器去分类鸢尾花数据，并将结果用不同的衡量指标或可视化图表表示。
 
 ## 实验十一：34城市的TSP问题
+参考实验七的问题2中给出的34城市TSP问题，要求从遗传算法、蚁群算法、粒子群算法、模拟退火算法中至少选择两种进行实现。如果有更多的想法也欢迎使用你们看到的资料。
 
-## 实验十二：关联关系挖掘
+## 实验十二：元胞自动机
+试着从网上查找资料，复现一个生命游戏的元胞自动机。这里我给出一个案例：
+```
+"""
+元胞自动机 Python 实现
+"""
+import numpy as np
+import matplotlib.pyplot as plt
+ 
+ 
+class GameOfLife(object):
+ 
+  def __init__(self, cells_shape):
+    """
+    Parameters
+    ----------
+    cells_shape : 一个元组，表示画布的大小。
+ 
+    Examples
+    --------
+    建立一个高20，宽30的画布
+    game = GameOfLife((20, 30))
+     
+    """
+ 
+    # 矩阵的四周不参与运算
+    self.cells = np.zeros(cells_shape)
+ 
+    real_width = cells_shape[0] - 2
+    real_height = cells_shape[1] - 2
+     
+    self.cells[1:-1, 1:-1] = np.random.randint(2, size=(real_width, real_height))
+    self.timer = 0
+    self.mask = np.ones(9)
+    self.mask[4] = 0
+   
+  def update_state(self):
+    """更新一次状态"""
+    buf = np.zeros(self.cells.shape)
+    cells = self.cells
+    for i in range(1, cells.shape[0] - 1):
+      for j in range(1, cells.shape[0] - 1):
+        # 计算该细胞周围的存活细胞数
+        neighbor = cells[i-1:i+2, j-1:j+2].reshape((-1, ))
+        neighbor_num = np.convolve(self.mask, neighbor, 'valid')[0]
+        if neighbor_num == 3:
+          buf[i, j] = 1
+        elif neighbor_num == 2:
+          buf[i, j] = cells[i, j]
+        else:
+          buf[i, j] = 0
+    self.cells = buf
+    self.timer += 1
+   
+  def plot_state(self):
+    """画出当前的状态"""
+    plt.title('Iter :{}'.format(self.timer))
+    plt.imshow(self.cells)
+    plt.show()
+ 
+  def update_and_plot(self, n_iter):
+    """更新状态并画图
+    Parameters
+    ----------
+    n_iter : 更新的轮数
+    """
+    plt.ion()
+    for _ in range(n_iter):
+      plt.title('Iter :{}'.format(self.timer))
+      plt.imshow(self.cells)
+      self.update_state()
+      plt.pause(0.2)
+    plt.ioff()
+           
+ 
+if __name__ == '__main__':
+  game = GameOfLife(cells_shape=(60, 60))
+  game.update_and_plot(200)
+```
